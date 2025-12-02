@@ -1,0 +1,279 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.weatherBox {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.inputArea {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input:focus {
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.searchButton {
+  padding: 1rem 2rem;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.searchButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.searchButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.error {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  color: rgb(185, 28, 28);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.weatherCard {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.weatherHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.location {
+  flex: 1;
+}
+
+.cityName {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #1a202c;
+  margin: 0;
+}
+
+.weatherIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji {
+  font-size: 4rem;
+}
+
+.mainWeather {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.temperature {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.temp {
+  font-size: 5rem;
+  font-weight: bold;
+  color: #667eea;
+  line-height: 1;
+}
+
+.unit {
+  font-size: 2rem;
+  color: #667eea;
+  margin-top: 0.5rem;
+  margin-left: 0.25rem;
+}
+
+.description {
+  font-size: 1.5rem;
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  text-transform: capitalize;
+}
+
+.feelsLike {
+  color: #718096;
+  font-size: 1rem;
+}
+
+.weatherDetails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 12px;
+}
+
+.detailIcon {
+  font-size: 2rem;
+}
+
+.detailLabel {
+  font-size: 0.875rem;
+  color: #718096;
+  margin: 0;
+}
+
+.detailValue {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a202c;
+  margin: 0;
+}
+
+.apiNote {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.apiNote p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  color: #92400e;
+}
+
+.apiLink {
+  color: #d97706;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.apiLink:hover {
+  text-decoration: underline;
+}
+
+.examples {
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.examplesTitle {
+  font-size: 0.875rem;
+  color: #4a5568;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.exampleButtons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.exampleButton {
+  padding: 0.5rem 1rem;
+  background: rgba(102, 126, 234, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.exampleButton:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .weatherCard {
+    padding: 1.5rem;
+  }
+
+  .temp {
+    font-size: 4rem;
+  }
+
+  .weatherDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .exampleButtons {
+    flex-direction: column;
+  }
+}

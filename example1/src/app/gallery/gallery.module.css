@@ -1,0 +1,340 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: #1a202c;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.searchArea {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+.input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.searchButton {
+  padding: 1rem 2rem;
+  background: white;
+  color: #1a202c;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.searchButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.searchButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.examples {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.exampleButton {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.exampleButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.error {
+  padding: 1rem;
+  background: rgba(220, 38, 38, 0.2);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 12px;
+  color: rgb(248, 113, 113);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.apiNote {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background: rgba(251, 191, 36, 0.2);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.apiNote p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.875rem;
+  color: rgb(252, 211, 77);
+}
+
+.apiLink {
+  color: rgb(253, 224, 71);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.apiLink:hover {
+  text-decoration: underline;
+}
+
+.gallery {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.imageCard {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.imageCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.imageInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+}
+
+.imageUser {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.imageLikes {
+  font-size: 0.875rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #2d3748;
+  border-radius: 16px;
+  overflow: hidden;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.modalImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background: #1a202c;
+}
+
+.modalImage {
+  object-fit: contain;
+}
+
+.modalInfo {
+  padding: 1.5rem;
+  color: white;
+}
+
+.modalTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: white;
+}
+
+.modalUser {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalLikes {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.downloadButton {
+  padding: 0.625rem 1.25rem;
+  background: white;
+  color: #1a202c;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.downloadButton:hover {
+  background: #f7fafc;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .searchArea {
+    flex-direction: column;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .modalContent {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+
+  .modalImageWrapper {
+    height: 50vh;
+  }
+}
