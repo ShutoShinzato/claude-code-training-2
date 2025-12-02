@@ -48,7 +48,7 @@ export default function WeatherPage() {
       // デモモード: APIキーがdemoの場合はダミーデータを返す
       if (API_KEY === 'demo') {
         // デモ用のダミーデータ
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         setWeather({
           name: city,
           sys: { country: 'JP' },
@@ -58,11 +58,13 @@ export default function WeatherPage() {
             humidity: 65,
             pressure: 1013,
           },
-          weather: [{
-            main: 'Clouds',
-            description: '曇り',
-            icon: '03d',
-          }],
+          weather: [
+            {
+              main: 'Clouds',
+              description: '曇り',
+              icon: '03d',
+            },
+          ],
           wind: {
             speed: 3.5,
           },
@@ -72,8 +74,8 @@ export default function WeatherPage() {
 
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-          city
-        )}&appid=${API_KEY}&units=metric&lang=ja`
+          city,
+        )}&appid=${API_KEY}&units=metric&lang=ja`,
       );
 
       if (!response.ok) {
@@ -147,9 +149,7 @@ export default function WeatherPage() {
                 <span className={styles.unit}>°C</span>
               </div>
               <p className={styles.description}>{weather.weather[0].description}</p>
-              <p className={styles.feelsLike}>
-                体感温度: {Math.round(weather.main.feels_like)}°C
-              </p>
+              <p className={styles.feelsLike}>体感温度: {Math.round(weather.main.feels_like)}°C</p>
             </div>
 
             <div className={styles.weatherDetails}>
@@ -179,7 +179,9 @@ export default function WeatherPage() {
             </div>
 
             <div className={styles.apiNote}>
-              <p>⚠️ デモモード: 実際のAPIを使用するには、OpenWeatherMapでAPIキーを取得してください</p>
+              <p>
+                ⚠️ デモモード: 実際のAPIを使用するには、OpenWeatherMapでAPIキーを取得してください
+              </p>
               <a
                 href="https://openweathermap.org/api"
                 target="_blank"

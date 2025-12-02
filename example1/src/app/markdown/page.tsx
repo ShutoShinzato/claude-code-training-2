@@ -97,7 +97,10 @@ export default function MarkdownEditor() {
     html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
 
     // リンク
-    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    html = html.replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
+    );
 
     // 水平線
     html = html.replace(/^---$/gim, '<hr>');
@@ -110,15 +113,18 @@ export default function MarkdownEditor() {
 
     // 箇条書きリスト
     html = html.replace(/^- (.+)$/gim, '<li>$1</li>');
-    html = html.replace(/^  - (.+)$/gim, '<li class="indent">$1</li>');
+    html = html.replace(/^ {2}- (.+)$/gim, '<li class="indent">$1</li>');
 
     // 段落
-    html = html.split('\n\n').map(para => {
-      if (para.match(/^<(h[1-6]|pre|hr|blockquote|li)/)) {
-        return para;
-      }
-      return `<p>${para}</p>`;
-    }).join('\n');
+    html = html
+      .split('\n\n')
+      .map((para) => {
+        if (para.match(/^<(h[1-6]|pre|hr|blockquote|li)/)) {
+          return para;
+        }
+        return `<p>${para}</p>`;
+      })
+      .join('\n');
 
     return html;
   };
@@ -171,12 +177,24 @@ export default function MarkdownEditor() {
       <div className={styles.tips}>
         <h3>💡 Markdownのヒント</h3>
         <ul>
-          <li><code>#</code> 見出し (# H1, ## H2, ### H3)</li>
-          <li><code>**太字**</code> または <code>*斜体*</code></li>
-          <li><code>[リンク](URL)</code> でリンク作成</li>
-          <li><code>`コード`</code> でインラインコード</li>
-          <li><code>```言語名</code> でコードブロック</li>
-          <li><code>- </code> または <code>1. </code> でリスト</li>
+          <li>
+            <code>#</code> 見出し (# H1, ## H2, ### H3)
+          </li>
+          <li>
+            <code>**太字**</code> または <code>*斜体*</code>
+          </li>
+          <li>
+            <code>[リンク](URL)</code> でリンク作成
+          </li>
+          <li>
+            <code>`コード`</code> でインラインコード
+          </li>
+          <li>
+            <code>```言語名</code> でコードブロック
+          </li>
+          <li>
+            <code>- </code> または <code>1. </code> でリスト
+          </li>
         </ul>
       </div>
     </div>

@@ -26,6 +26,6 @@ export type ApiResponse<T> = ApiSuccessResponse<T> | ApiErrorResponse;
  * ヘルスチェックレスポンス
  */
 export interface HealthCheckResponse {
-  status: "ok";
+  status: 'ok';
   timestamp: string;
 }

@@ -40,9 +40,7 @@ export default function CurrencyConverter() {
 
     try {
       // ExchangeRate-API (無料、認証不要)
-      const response = await fetch(
-        `https://api.exchangerate-api.com/v4/latest/${fromCurrency}`
-      );
+      const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${fromCurrency}`);
 
       if (!response.ok) {
         throw new Error('為替レートの取得に失敗しました');
@@ -134,11 +132,7 @@ export default function CurrencyConverter() {
             </div>
           </div>
 
-          <button
-            onClick={convertCurrency}
-            disabled={loading}
-            className={styles.convertButton}
-          >
+          <button onClick={convertCurrency} disabled={loading} className={styles.convertButton}>
             {loading ? '変換中...' : '換算する'}
           </button>
         </div>
@@ -154,26 +148,24 @@ export default function CurrencyConverter() {
               </div>
               <div className={styles.resultEquals}>=</div>
               <div className={styles.resultTo}>
-                <span className={styles.resultAmount}>{result.toLocaleString(undefined, {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2,
-                })}</span>
+                <span className={styles.resultAmount}>
+                  {result.toLocaleString(undefined, {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}
+                </span>
                 <span className={styles.resultCurrency}>{toCurrency}</span>
               </div>
             </div>
-            {lastUpdate && (
-              <p className={styles.updateTime}>最終更新: {lastUpdate}</p>
-            )}
+            {lastUpdate && <p className={styles.updateTime}>最終更新: {lastUpdate}</p>}
           </div>
         )}
 
         {rates && (
           <div className={styles.ratesSection}>
-            <h3 className={styles.ratesTitle}>
-              主要通貨レート (1 {fromCurrency} =)
-            </h3>
+            <h3 className={styles.ratesTitle}>主要通貨レート (1 {fromCurrency} =)</h3>
             <div className={styles.ratesGrid}>
-              {CURRENCIES.filter(c => c.code !== fromCurrency).map((currency) => (
+              {CURRENCIES.filter((c) => c.code !== fromCurrency).map((currency) => (
                 <div key={currency.code} className={styles.rateCard}>
                   <span className={styles.rateCurrency}>
                     {currency.symbol} {currency.code}

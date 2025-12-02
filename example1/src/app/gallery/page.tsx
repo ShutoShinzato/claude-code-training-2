@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from './gallery.module.css';
 
 interface UnsplashImage {
@@ -81,7 +81,7 @@ export default function GalleryPage() {
       // const API_KEY = process.env.NEXT_PUBLIC_UNSPLASH_API_KEY;
 
       // デモモード: ダミー画像を表示
-      await new Promise(resolve => setTimeout(resolve, 800));
+      await new Promise((resolve) => setTimeout(resolve, 800));
       setImages(DEMO_IMAGES);
     } catch (err) {
       setError(err instanceof Error ? err.message : '画像の取得に失敗しました');
@@ -151,11 +151,7 @@ export default function GalleryPage() {
       {images.length > 0 && (
         <div className={styles.gallery}>
           {images.map((image) => (
-            <div
-              key={image.id}
-              className={styles.imageCard}
-              onClick={() => openModal(image)}
-            >
+            <div key={image.id} className={styles.imageCard} onClick={() => openModal(image)}>
               <div className={styles.imageWrapper}>
                 <Image
                   src={image.urls.small}

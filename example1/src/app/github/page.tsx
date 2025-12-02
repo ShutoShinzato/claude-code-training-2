@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
+import { useState } from 'react';
 import styles from './github.module.css';
 
 interface GitHubUser {
@@ -57,7 +57,7 @@ export default function GitHubSearchPage() {
 
       // リポジトリ情報取得（最新5件）
       const reposRes = await fetch(
-        `https://api.github.com/users/${username}/repos?sort=updated&per_page=5`
+        `https://api.github.com/users/${username}/repos?sort=updated&per_page=5`,
       );
       if (reposRes.ok) {
         const reposData = await reposRes.json();
@@ -169,13 +169,9 @@ export default function GitHubSearchPage() {
                         <h4 className={styles.repoName}>{repo.name}</h4>
                         <span className={styles.repoStars}>⭐ {repo.stargazers_count}</span>
                       </div>
-                      {repo.description && (
-                        <p className={styles.repoDesc}>{repo.description}</p>
-                      )}
+                      {repo.description && <p className={styles.repoDesc}>{repo.description}</p>}
                       <div className={styles.repoFooter}>
-                        {repo.language && (
-                          <span className={styles.repoLang}>{repo.language}</span>
-                        )}
+                        {repo.language && <span className={styles.repoLang}>{repo.language}</span>}
                         <span className={styles.repoDate}>
                           更新: {new Date(repo.updated_at).toLocaleDateString('ja-JP')}
                         </span>

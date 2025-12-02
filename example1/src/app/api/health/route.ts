@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
-import type { HealthCheckResponse } from "@/lib/types";
+import { NextResponse } from 'next/server';
+import type { HealthCheckResponse } from '@/lib/types';
 
 /**
  * ヘルスチェックエンドポイント
@@ -9,7 +9,7 @@ import type { HealthCheckResponse } from "@/lib/types";
  */
 export async function GET() {
   const response: HealthCheckResponse = {
-    status: "ok",
+    status: 'ok',
     timestamp: new Date().toISOString(),
   };
 
