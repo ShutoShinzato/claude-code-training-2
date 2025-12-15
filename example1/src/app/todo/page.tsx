@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './todo.module.css';
 
 interface Todo {
@@ -51,23 +51,23 @@ export default function TodoPage() {
   };
 
   const toggleTodo = (id: string) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
+    setTodos(
+      todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)),
+    );
   };
 
   const deleteTodo = (id: string) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
-  const filteredTodos = todos.filter(todo => {
+  const filteredTodos = todos.filter((todo) => {
     if (filter === 'active') return !todo.completed;
     if (filter === 'completed') return todo.completed;
     return true;
   });
 
-  const activeCount = todos.filter(todo => !todo.completed).length;
-  const completedCount = todos.filter(todo => todo.completed).length;
+  const activeCount = todos.filter((todo) => !todo.completed).length;
+  const completedCount = todos.filter((todo) => todo.completed).length;
 
   return (
     <div className={styles.container}>
@@ -117,7 +117,7 @@ export default function TodoPage() {
               {filter === 'completed' && '完了したタスクはありません'}
             </p>
           ) : (
-            filteredTodos.map(todo => (
+            filteredTodos.map((todo) => (
               <div key={todo.id} className={styles.todoItem}>
                 <input
                   type="checkbox"
@@ -125,13 +125,8 @@ export default function TodoPage() {
                   onChange={() => toggleTodo(todo.id)}
                   className={styles.checkbox}
                 />
-                <span className={todo.completed ? styles.completed : ''}>
-                  {todo.text}
-                </span>
-                <button
-                  onClick={() => deleteTodo(todo.id)}
-                  className={styles.deleteButton}
-                >
+                <span className={todo.completed ? styles.completed : ''}>{todo.text}</span>
+                <button onClick={() => deleteTodo(todo.id)} className={styles.deleteButton}>
                   削除
                 </button>
               </div>

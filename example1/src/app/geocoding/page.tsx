@@ -42,12 +42,12 @@ export default function GeocodingPage() {
       // Nominatim API (OpenStreetMap の無料ジオコーディングAPI)
       const response = await fetch(
         `https://nominatim.openstreetmap.org/search?` +
-        `q=${encodeURIComponent(address)}&format=json&limit=1&addressdetails=1`,
+          `q=${encodeURIComponent(address)}&format=json&limit=1&addressdetails=1`,
         {
           headers: {
             'User-Agent': 'NextJS-Geocoding-App',
           },
-        }
+        },
       );
 
       if (!response.ok) {
@@ -110,16 +110,13 @@ export default function GeocodingPage() {
     if (result) {
       const coords = `${result.lat}, ${result.lon}`;
       navigator.clipboard.writeText(coords);
-      alert('座標をコピーしました: ' + coords);
+      alert(`座標をコピーしました: ${coords}`);
     }
   };
 
   const openInGoogleMaps = () => {
     if (result) {
-      window.open(
-        `https://www.google.com/maps?q=${result.lat},${result.lon}`,
-        '_blank'
-      );
+      window.open(`https://www.google.com/maps?q=${result.lat},${result.lon}`, '_blank');
     }
   };
 
@@ -185,14 +182,16 @@ export default function GeocodingPage() {
                   parseFloat(result.lon) - 0.01
                 },${parseFloat(result.lat) - 0.01},${
                   parseFloat(result.lon) + 0.01
-                },${parseFloat(result.lat) + 0.01}&layer=mapnik&marker=${result.lat},${
-                  result.lon
-                }`}
+                },${parseFloat(result.lat) + 0.01}&layer=mapnik&marker=${result.lat},${result.lon}`}
                 title="Map"
                 className={styles.map}
               />
               <small className={styles.mapCredit}>
-                Map data © <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors
+                Map data ©{' '}
+                <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">
+                  OpenStreetMap
+                </a>{' '}
+                contributors
               </small>
             </div>
           </div>
